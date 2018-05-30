@@ -4,9 +4,9 @@ using namespace std;
 
 int main()
 {
-	int p,r,t,si;
+	double p,r,t;
 
 	cin>>p>>r>>t;
 
-	cout<<p*r*t<<endl;
+	cout<<(p*r*t)/100<<endl;
 }
