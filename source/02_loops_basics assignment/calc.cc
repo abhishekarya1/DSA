@@ -12,6 +12,7 @@ int main()
 	if(c=='+') cout<<a+b;
 	if(c=='-') cout<<a-b;
 	if(c=='*') cout<<a*b;
-	if(c=='/') cout<<(a/b);
+	if(c=='/') cout<<a/b;
+	if(c=='%') cout<<(int)a%(int)b;
 
 }
