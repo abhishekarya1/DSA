@@ -6,34 +6,36 @@ int main()
 {
 	int n;
 	cin>>n;
-//increasing lines
+
 	int inclines=(n/2)+1;
-	int declines=n-inclines;
-	for(int top=1;top<=n;top++) cout<<"*";
-	cout<<endl;
-
-	for(int curline=1;curline<=inclines-1;curline++)
-	{
-		int nspaces=2*curline-1;
-		int nstars=n-nspaces;
-		for(int i=1;i<=nstars/2;i++) cout<<"*";
-		for(int j=1;j<=nspaces;j++) cout<<" ";
-		for(int i=1;i<=nstars/2;i++) cout<<"*";
-
+	int declines=(n-inclines)-1;
+//increasing + full top line
+	for(int i=1;i<=n;i++) cout<<"*";
 		cout<<endl;
+	//increasing
+	
+	for(int curline=1;curline<=inclines;curline++)
 
-	}
-//decreasing lines
-	for(int curline=declines-1;curline>=1;curline--)
-	{
-		int nspaces=2*curline-1;
-		int nstars=n-nspaces;
-		for(int i=1;i<=nstars/2;i++) cout<<"*";
-		for(int j=1;j<=nspaces;j++) cout<<" ";
-		for(int i=1;i<=nstars/2;i++) cout<<"*";
+	{	
 
+		int nspaces=(2*curline)-1;
+		int nstars=(n-nspaces)/2;
+		for(int i=1;i<=nstars;i++) {cout<<"*";}
+		for(int i=1;i<=nspaces;i++) {cout<<" ";}
+		for(int i=1;i<=nstars;i++) {cout<<"*";}
+			
 		cout<<endl;
-
-		for(int curval=1;curval<=n;curval++) cout<<"*";	 //bottom line	
 	}
-}	
+//decreasing
+	for(int curline=1;curline<=declines;curline++)
+	{
+		int nspaces=(2*curline)-1;
+		int nstars=(n-nspaces)/2;
+		for(int i=nstars;i>=1;i--) cout<<"*";
+		for(int i=nspaces;i>=1;i--) cout<<" ";
+		for(int i=nstars;i>=1;i--) cout<<"*";
+			cout<<endl;
+	}
+	for(int i=1;i<=n;i++) cout<<"*";
+		cout<<endl;
+}
