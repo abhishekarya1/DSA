@@ -3,21 +3,22 @@
 
 using namespace std;
 
-bool checker(char str[])
+int checker(char str[])
 {	bool flag=true;
 	int start=0;
 	int last=strlen(str)-1;
 	while(start<=last)
-	{	if(str[last]!=str[start]) flag=false;
+	{	if(str[start]!=str[last]) 
+		flag=false;
 		++start;
 		--last;
 	}
-	return flag==true; 
+	if(flag==true) return 12;
 }
 
 int main()
 {
 	char str[1000];
 	cin>>str;
-	if(checker(str)==0) cout<<"true";
+	if(checker(str)==12) cout<<"true";
 }
