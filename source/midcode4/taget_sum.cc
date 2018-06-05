@@ -42,7 +42,7 @@ int finder(int arr[], int n, int target)
 		for(int j=0;j<n;++j)
 		{
 			if(arr[i]+arr[j]==target && arr[i]<arr[j]) cout<<arr[i]<<" and "<<arr[j];
-			cout<<endl;
+			cout<<e
 		}
 	}
 }
