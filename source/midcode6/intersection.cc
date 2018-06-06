@@ -43,7 +43,7 @@ int intersect(int arr1[], int arr2[], int n)
 
 		} else if (arr1[p] == arr2[q]) {
 
-			temp[i] = arr1[p] ;
+			temp[i] = arr1[p];
 			p++;
 			q++;
 			i = i + 1;
