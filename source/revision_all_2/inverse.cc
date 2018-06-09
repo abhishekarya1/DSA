@@ -5,6 +5,7 @@ using namespace std;
 int main()
 {
 	int n;
+	int place;
 	cin>>n;
 	int digit=0,num=0;
 	int i=1;
@@ -12,7 +13,7 @@ int main()
 	{	int mul=1;
 		digit=n%10;
 		int j=digit;
-		while(j)
+		while(j-1)
 		{
 			mul*=10;
 			--j;
