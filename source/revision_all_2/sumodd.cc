@@ -1,19 +1,23 @@
 #include<iostream>
-
 using namespace std;
 
-int main()
-{
-	int n,digit=0,osum=0,esum=0;
-	cin>>n;
-	int i=n;
-	while(i)
-	{
-		digit=n%10;
-		if(i%2==0) osum+=digit;
-		else esum+=digit;
-		n/=10;
-		--i;
+int main(){
+	int num,evensum=0,oddsum=0;
+	bool flag = true;
+	cin >> num;
+	int temp = num;
+	while(num){
+		temp = num % 10;
+		if(flag == true){
+			oddsum = oddsum + temp;
+			flag = false;
+		}
+		else{
+			evensum = evensum + temp;
+			flag = true;	
+		}
+		num = num / 10;
 	}
-	cout<<osum<<endl<<esum;
-}	
+	cout << oddsum << endl << evensum;
+
+}
