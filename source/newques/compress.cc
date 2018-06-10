@@ -3,15 +3,14 @@
 using namespace std;
 void string_compress(char str[])
 {
+            int count = 0;
     for (int i = 0; i < strlen(str); i++)
     {
-        int count = 0;
-
         if (str[i] == str[i + 1])
         {
             count++;
         }
-        if (str[i] != str[i + 1])
+       else if (str[i] != str[i + 1])
         {   cout << str[i];
             if (count > 1) cout << count; count = 0;
         }
