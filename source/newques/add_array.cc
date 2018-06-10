@@ -43,11 +43,9 @@ int calSumUtil(int a[], int b[], int n, int m)
     for (int i = 0; i <= n - 1; i++) cout<<sum[i];
 }
  
-// Wrapper Function
 int calSum(int a[], int b[], int n, int m)
 {
-    // Making first array which have
-    // greater number of element
+
     if (n >= m)
         return calSumUtil(a, b, n, m);
  
@@ -55,7 +53,6 @@ int calSum(int a[], int b[], int n, int m)
         return calSumUtil(b, a, m, n);
 }
  
-// Driven Program
 int main()
 {
     int a[10]; int b[10]; int m; int n;
