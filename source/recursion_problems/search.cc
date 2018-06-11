@@ -7,11 +7,14 @@ void input_array(int *arr, int n)
 	for (int i = 0; i < n; i++) cin >> arr[i];
 }
 
-bool isThere(int *arr, int n, int m)
+int isThere(int *arr, int n, int m)
 {
-	if (arr[n - 1] == m) return true;
-	else {isThere(arr, n - 1, m); return false;}
-	
+	if (n < 1) return 1;
+	if (arr[n - 1] == m) return 0;
+	else isThere(arr, n - 1, m);
+
+
+
 }
 
 int main()
@@ -21,7 +24,7 @@ int main()
 	cin >> n;
 	input_array(arr, n);
 	cin >> m;
-	if (isThere(arr, n, m) == true) cout << "true";
+	if (isThere(arr, n, m) == 0) cout << "true";
 	else cout << "false";
 
 }
