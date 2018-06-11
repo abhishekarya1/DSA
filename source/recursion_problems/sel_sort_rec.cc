@@ -19,12 +19,11 @@ int smallestEle(int *arr, int beg, int end)
 
 void selsort(int *arr, int n, int cur)
 {
-	if (n < 1) return;
-	selsort(arr, n - 1, cur + 1);
-	{
-		int Idx = smallestEle(arr, cur, n - 1);
-		if (arr[cur] < arr[Idx]) swap(arr[cur], arr[Idx]);
-	}
+	if (cur == n) return;
+	int Idx = smallestEle(arr, cur, n - 1);
+	if (arr[cur] > arr[Idx]) swap(arr[cur], arr[Idx]);
+
+	selsort(arr, n, cur + 1);
 }
 
 void o_array(int *arr, int n)
@@ -35,6 +34,7 @@ void o_array(int *arr, int n)
 int main()
 {
 	int n, arr[10], cur = 0;
+	cin>>n;
 	input_array(arr, n);
 	selsort(arr, n, cur);
 	o_array(arr, n);
