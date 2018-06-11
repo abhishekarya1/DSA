@@ -16,7 +16,7 @@ void input_array(int *arr, int n)
 
 void rev_array(int *arr, int n, int cur)
 {
-	if (n < 1 && cur > n) return;
+	if ( cur > n-1) return;
 	
 	swap(arr[n - 1], arr[cur]);
 
