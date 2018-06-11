@@ -19,16 +19,17 @@ int smallestEle(int *arr, int beg, int end)
 
 void selsort(int *arr, int n, int cur)
 {
-	selsort(arr,n-1,cur+1);
+	if (n < 1) return;
+	selsort(arr, n - 1, cur + 1);
 	{
 		int Idx = smallestEle(arr, cur, n - 1);
-		if (arr[cur] < arr[Idx]) swap(arr[i], arr[Idx]);
+		if (arr[cur] < arr[Idx]) swap(arr[cur], arr[Idx]);
 	}
 }
 
 void o_array(int *arr, int n)
 {
-	for (int i = 0; i < n; i++) cout << arr[i];
+	for (int i = 0; i < n; i++) cout << arr[i] << " ";
 }
 
 int main()
