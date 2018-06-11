@@ -10,7 +10,7 @@ void input_array(int *arr, int n)
 bool isThere(int *arr, int n, int m)
 {
 	if (arr[n - 1] == m) return true;
-	else isThere(arr, n - 1, m); return false;
+	else {isThere(arr, n - 1, m); return false;}
 	
 }
 
