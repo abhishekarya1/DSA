@@ -19,7 +19,7 @@ int smallestEle(int *arr, int beg, int end)
 
 void selsort(int *arr, int n, int cur)
 {
-	if (cur == n) return;
+	if (cur > n) return;
 	int Idx = smallestEle(arr, cur, n - 1);
 	if (arr[cur] > arr[Idx]) swap(arr[cur], arr[Idx]);
 
