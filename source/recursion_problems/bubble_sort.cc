@@ -2,41 +2,30 @@
 
 using namespace std;
 
-void swap(int &a, int &b)
-{
-	int temp = a;
-	a = b;
-	b = temp;
-}
-
 void input_array(int *arr, int n)
 {
 	for (int i = 0; i < n; i++) cin >> arr[i];
 }
 
-void b_sort_rec(int *arr, int n, int cur)
-{
-	if (cur >= n) return;
-	b_sort_rec(arr, n, cur + 1);
-    if (arr[cur] > arr[cur + 1])
-    {
-        swap(arr[cur], arr[cur + 1]);
-        b_sort_rec(arr, n, cur + 1);
-    }
-    
- 
-}
 
-void out_array(int *arr, int n)
+void bubbleSort(int arr[], int be, int en)
 {
-	for (int i = 0; i < n; i++) cout << arr[i] << " ";
+	if (be >= en) {
+		return;
+	}
+
+	bubbleSort(arr, be + 1, en);
+	if (arr[be] > arr[be + 1]) {
+		swap(arr[be], arr[be + 1]);
+		bubbleSort(arr, be + 1, en);
+	}
+
 }
 
 int main()
 {
-	int arr[10], n, cur = 0;
+	int arr[10], n;
 	cin >> n;
 	input_array(arr, n);
-	b_sort_rec(arr, n, cur);
-	out_array(arr,n);
+	bubbleSort(arr, 0, 10);
 }
