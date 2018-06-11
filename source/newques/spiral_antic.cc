@@ -14,11 +14,12 @@ void spiralantic(int arr[][10], int r, int c)
 {
 	int T = 0, B = r - 1, L = 0, R = c - 1;
 	int dir = 0;
-	while (L <= R && T >= B)
+
+	while (L <= R && T <= B)
 	{
 		if (dir == 0)
 		{
-			for (int i = T; i >= B; i--) cout << arr[i][L] << ", ";
+			for (int i = T; i <= B; i++) cout << arr[i][L] << ", ";
 			L++;
 		}
 		else if (dir == 1)
@@ -44,6 +45,7 @@ void spiralantic(int arr[][10], int r, int c)
 int main()
 {
 	int arr[10][10], r, c;
+	cin >> r >> c;
 	input_array(arr, r, c);
 	spiralantic(arr, r, c);
 }
