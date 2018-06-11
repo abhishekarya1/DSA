@@ -19,30 +19,31 @@ void spiral_print(int arr[][10], int r, int c)
 	{
 		if (dir == 0)
 		{
-			for (int i = L; i <= R; i++) cout << arr[T][i] << " ";
+			for (int i = L; i <= R; i++) cout << arr[T][i] << ", ";
 			
 			T++;
 		}
 		else if (dir == 1)
 		{
-			for (int i = T; i <= B; i++) cout << arr[i][R] << " ";
+			for (int i = T; i <= B; i++) cout << arr[i][R] << ", ";
 			
 			R--;
 		}
-		else if (dir = 2)
+		else if (dir == 2)
 		{
-			for (int i = R; i >= L; i--) cout << arr[B][i] << " ";
+			for (int i = R; i >= L; i--) cout << arr[B][i] << ", ";
 			
 			B--;
 		}
-		else if (dir = 3)
+		else if (dir == 3)
 		{
-			for (int i = B; i >= T; i--) cout << arr[i][L] << " ";
-
+			for (int i = B; i >= T; i--) cout << arr[i][L] << ", ";
+            
 			L++;
 		}
 		dir = (dir + 1) % 4;
 	}
+		cout<<"END";
 }
 
 int main()
