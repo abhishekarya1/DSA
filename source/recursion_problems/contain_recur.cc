@@ -10,9 +10,9 @@ void input_array(int *arr, int n)
 bool isThere(int *arr, int n, int m, int cur)
 {	
 	if (cur > n) return false;
-	
+	isThere(arr, n, m, cur + 1);
 	if (arr[cur] == m) return true;
-	else isThere(arr, n, m, cur + 1); 
+	else return false;  
 }
 
 int main()
