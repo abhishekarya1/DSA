@@ -5,11 +5,11 @@ using namespace std;
 
 void checkDuplicates(char str[], int length, int c)
 {
-	if (c >= length) return;
+	if (c >= length-1) return;
 	if (str[c] == str[c + 1])
 	{
 		for (int i=length; i >= c; i--) str[i + 1] = str[i];
-		str[c+1] = '*';	
+		str[c] = '*';	
 	}
 	
 
