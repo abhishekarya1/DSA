@@ -12,14 +12,14 @@ int smallestEle(int *arr, int beg, int end)
 	int smallestIdx = beg;
 	for (int i = beg; i <= end; i++)
 	{
-		if (arr[i] < arr[beg]) smallestIdx = i;
+		if (arr[i] < arr[smallestIdx]) smallestIdx = i;
 	}
 	return smallestIdx;
 }
 
 void selsort(int *arr, int n, int cur)
 {
-	if (cur > n) return;
+	if (cur >= n) return;
 	int Idx = smallestEle(arr, cur, n - 1);
 	if (arr[cur] > arr[Idx]) swap(arr[cur], arr[Idx]);
 
