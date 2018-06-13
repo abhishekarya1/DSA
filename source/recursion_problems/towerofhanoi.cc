@@ -4,13 +4,13 @@ using namespace std;
 
 int cnt = 0;
 
-void printSteps(int n, char src, char dest, char helper)
+void stepsPrint(int n, string src, string dest, string helper)
 {
 	if (n == 0) return;
 	cnt++;
-	printSteps(n - 1, src, helper, dest);
-	cout << "Step - " << cnt << " " << n << " : " << src << " --> " << dest << endl;
-	printSteps(n - 1, helper, dest, src);
+	stepsPrint(n - 1, src, helper, dest);
+	cout << "Move" << " " << n << "th disc from " << src << " to " << dest << endl;
+	stepsPrint(n - 1, helper, dest, src);
 }
 
 int main()
@@ -18,5 +18,7 @@ int main()
 	int n;
 	cin >> n;
 
-	printSteps(n, 'A', 'B', 'C');
+	stepsPrint(n, "T1", "T2", "T3");
+
+	cout << cnt;
 }
