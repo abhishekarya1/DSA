@@ -3,29 +3,26 @@
 
 using namespace std;
 
-void checkDuplicates(char str[], int length, int i)
+void checkDuplicates(char str[], int length, int c)
 {
-	if (i >= length) return;
-
-	if (str[i] == str[i + 1])
+	if (c >= length) return;
+	if (str[c] == str[c + 1])
 	{
-		int temp = i + 1;
-
-		for (i; i <= length; i++) str[i] = str[i - 1];
-
-		str[temp] = '*';
+		for (int i=length; i >= c; i--) str[i + 1] = str[i];
+		str[c+1] = '*';	
 	}
+	
 
-	checkDuplicates(str, length, i + 1);
-}
+	checkDuplicates(str, length, c + 1);
+}	
 
 int main()
 {
 	char str[100];
-	int i = 0;
+	int c = 0;
 	cin >> str;
 	int length = strlen(str);
-	checkDuplicates(str, length, i);
+	checkDuplicates(str, length, c);
 	cout << str;
 
 }
