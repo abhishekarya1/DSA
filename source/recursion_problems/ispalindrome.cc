@@ -1,24 +1,23 @@
 #include<iostream>
+#include<cstring>
 
 using namespace std;
 
-void input_array(int *arr, int n)
+int ispalindrome(char *arr, int last, int cur)
 {
-	for (int i = 0; i < n; i++) cin >> arr[i];
-}
+	if (cur > last) return true;
 
-int ispalindrome(int *arr, int n, int cur)
-{
-	if(n<1 && n<cur) return 0;
+	if (arr[last] != arr[cur]) return false;
 
-	if(arr[n-1]!=arr[cur]) return 0;
-	ispalindrome(arr,n-1,cur+1);
+	ispalindrome(arr, last - 1, cur + 1);
 }
 
 int main()
 {
-	int arr[10], n, cur=0;
-	cin>>n;
-	input_array(arr,n);
-	ispalindrome(arr,n,cur)==0?cout<<"false":cout<<"true";
+	char arr[100];
+	cin >> arr;
+	int n = strlen(arr);
+
+	if(ispalindrome(arr, n - 1, 0) == true) cout << "true";
+	else cout << "false";
 }
