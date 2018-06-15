@@ -2,9 +2,12 @@
 
 using namespace std;
 
-void printSub(char *instr, char *outstr, int length)
+void printSub(char *instr, char *outstr)
 {
-	
+	if(str[i] == '\0')
+	{
+		
+	}
 }
 
 int main()
@@ -13,7 +16,5 @@ int main()
 
 	cin >> instr;
 
-	int length = strlen(instr);
-
-	printSub(instr, outstr, length);
+	printSub(instr, outstr);
 }
