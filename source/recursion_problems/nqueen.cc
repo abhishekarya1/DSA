@@ -15,8 +15,9 @@ void outputBoard(char board[][100], int N)
 	for (int i = 0; i < N; i++)
 	{
 		for (int j = 0; j < N; j++) cout << board[i][j] << " ";
+				cout << endl;
 	}
-	cout << endl;
+
 }
 
 bool canPlace(char board[][100], int r, int c, int dim)
@@ -39,10 +40,11 @@ bool canPlace(char board[][100], int r, int c, int dim)
 		if (nextRow < 0 || (nextRow >= dim) || (nextCol < 0) || nextCol >= dim) break;
 
 		if (board[nextRow][nextCol] == 'Q') return false;
+		}
+	
 	}
-}
 
-	return true;
+return true;
 
 }
 
@@ -63,8 +65,9 @@ bool solveQueen(char board[][100], int r, int dim)
 
 		}
 
-		return false;
+	
 	}
+		return false;
 }
 
 int main()
@@ -77,7 +80,7 @@ int main()
 
 	bool success = solveQueen(board, 0, N);
 
-	if (success) outputBoard(board, N);
+	if(success) outputBoard(board, N);
 	else cout << "Couldn't solve it!!!" << endl;
 
 }
