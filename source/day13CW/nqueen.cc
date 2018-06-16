@@ -71,7 +71,7 @@ int main()
 	char board[100][100];
 	clearBoard(board, n);
 
-	solve(board, 0, n) == false? solve(board, 0,n) : cout << "ZXT";
+	solve(board, 0, n);
 
 	
 }
