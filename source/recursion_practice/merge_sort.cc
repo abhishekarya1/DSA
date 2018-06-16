@@ -19,18 +19,23 @@ void merge(int arr[], int s, int e)
 	while (i <= mid && j <= e)
 	{
 		if (arr[i] < arr[j]) tmp[k++] = arr[i++];
-		else arr[k++] = arr[j++];
+		else tmp[k++] = arr[j++];
 	}
 
 	while (i <= mid) tmp[k++] = arr[i++];
 	while (j <= e) tmp[k++] = arr[j++];
 
-	for (int z = 0; z < e; z++) cout << tmp[z];
+	for(int i=s;i<=e;i++){
+        arr[i] = tmp[i];
+    }
 }
+
+
 
 void mergeSort(int arr[], int s, int e)
 {
-	if(s>=e) return;
+	if (s >= e) return;
+
 	int mid = (s + e) / 2;
 
 	mergeSort(arr, s, mid);
@@ -48,4 +53,8 @@ int main()
 	input_array(arr, n);
 
 	mergeSort(arr, 0, n - 1);
+
+	for(int i=0;i<n;i++){
+	    cout<<arr[i]<<" , ";
+	}
 }
