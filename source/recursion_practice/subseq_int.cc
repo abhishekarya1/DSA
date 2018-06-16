@@ -9,21 +9,20 @@ void input_array(int arr[], int n)
 
 void output_array(int *arr, int n)
 {
-	for (int i = 0; i < n; i++) cout << arr[i];
-	cout << endl;
+	for (int i = 0; i < n; i++) cout << arr[i] << " ";
 }
 
-void printPermu(int *arr, int *subans, int n, int i, int j)
+void printSub(int *arr, int *subans, int n, int i, int j)
 {
-	if (i == n)
-	{
-		output_array(subans, i);
+	if (i == n) {
+		output_array(subans, j);
+		cout << endl;
 		return;
 	}
 
 	subans[j] = arr[i];
-	printPermu(arr, subans, n, i + 1, j + 1);
-	printPermu(arr, subans, n, i + 1, j);
+	printSub(arr, subans, n, i + 1, j + 1);
+	printSub(arr, subans, n, i + 1, j);
 }
 
 
@@ -33,5 +32,5 @@ int main()
 	cin >> n;
 
 	input_array(arr, n);
-	printPermu(arr, subans, n, 0, 0);
+	printSub(arr, subans, n, 0, 0);
 }
