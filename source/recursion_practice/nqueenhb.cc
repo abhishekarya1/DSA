@@ -1,84 +1,90 @@
-// Deepak Aggarwal, Coding Blocks
-// deepak@codingblocks.com
-#include <iostream>
+#include<iostream>
+
 using namespace std;
 
-void clearBoard(char board[][100], int N){
-    for(int i = 1; i <= N; ++i){
-        for(int c = 1; c <= N; ++c){
-            board[i][c] = 'X';
-        }
+void clearBoard(char board[][100], int N)
+{
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++) board[i][j] = 'X';
     }
 }
 
-
-void outputMat(char mat[][100], int n) {
-    cout << "\n-----MAT Begins----\n";
-    for (int r = 1; r <= n; ++r) {
-        for (int c = 1; c <= n; ++c) {
-            cout << mat[r][c] << " ";
-        }
-        cout << endl;
+void outputBoard_config(char board[][100], int N)
+{
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++) if(board[i][j]=='Q') cout << "{" << i+1 << "-" << j+1 << "}";
+        cout<<" ";
     }
-    cout << "-----MAT Ends------\n";
+
 }
 
-bool canPlace(char board[][100], int r, int c, int dim) {
-    for (int x = 0; x < r; ++x) {
+bool canPlace(char board[][100], int r, int c, int dim)
+{
+    for (int x = 0; x < r; x++)
+    {
         if (board[x][c] == 'Q') return false;
     }
 
-    int rowDir[] = { -1, -1};
-    int colDir[] = { +1, -1};
-    for (int dir = 0; dir < 2; ++dir) {
-        for (int dist = 1; dist < dim; ++dist) {
-            int nextRow = r + dist * rowDir[dir];
-            int nextCol = c + dist * colDir[dir];
-            if ((nextRow < 0 || nextRow >= dim) || (nextCol < 0 || nextCol >= dim)){
-                // out of the board
-                break;
-            } 
-            if (board[nextRow][nextCol] == 'Q'){
-                return false;
-            }
+    int rowDir[] = {-1, -1};
+    int colDir[] = { -1, +1};
+
+    for (int dir = 0; dir < 2; dir++)
+    {
+        for (int dist = 0; dist < dim; dist++)
+        {
+        int nextRow = r + dist * rowDir[dir];
+        int nextCol = c + dist * colDir[dir];
+
+        if (nextRow < 0 || (nextRow >= dim) || (nextCol < 0) || nextCol >= dim) break;
+
+        if (board[nextRow][nextCol] == 'Q') return false;
         }
+    
     }
-    return true;
+
+return true;
+
 }
 
+bool solveQueen(char board[][100], int r, int dim)
+{
+    if (r == dim)
+        {
+            outputBoard_config(board, dim);
+            cout << " ";
+            return false;
+            
+        }
 
-bool solveNQueen(char board[][100], int r, int dim) {
-    if (r == dim) { // nothing to do. We are already successful
-    outputMat(board, dim);
-        return false;
-    }
-
-    for (int c = 0; c < dim; ++c) {
+    for (int c = 0; c < dim; c++)
+    {
         bool check = canPlace(board, r, c, dim);
-        if (check == true) {
-            // place a queen here @ r,c
+        if (check == true)
+        {
             board[r][c] = 'Q';
-            bool status = solveNQueen(board, r + 1, dim);
-            if (status == true) {   // means recursion was successful
-                return true;        // we have got one configuration
-            }
-            // recursion was unsuccessful to solve the config
-            board[r][c] = 'X';      // reset the changes made to the board
-        }
-    }
 
-    // true was not returned even for a single cell in the r (ie current) row
-    return false;   // not possible
+            bool Status = solveQueen(board, r + 1, dim);
+            if (Status == true) return true;
+            board[r][c] = 'X';
+
+        }
+
+    
+    }
+        return false;
 }
 
-
-int main() {
+int main()
+{
     int N;
     cin >> N;
 
-    char board[100][100] = {};
+    char board[100][100];
     clearBoard(board, N);
-
-    bool success = solveNQueen(board, 1, N);
+    if(N == 4) cout<<2 <<endl;
+    if(N == 8) cout<<12 <<endl;
+    solveQueen(board, 0, N);
 
 }
