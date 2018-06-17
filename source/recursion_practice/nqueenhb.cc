@@ -4,8 +4,8 @@
 using namespace std;
 
 void clearBoard(char board[][100], int N){
-    for(int i = 0; i < N; ++i){
-        for(int c = 0; c < N; ++c){
+    for(int i = 1; i <= N; ++i){
+        for(int c = 1; c <= N; ++c){
             board[i][c] = 'X';
         }
     }
@@ -14,8 +14,8 @@ void clearBoard(char board[][100], int N){
 
 void outputMat(char mat[][100], int n) {
     cout << "\n-----MAT Begins----\n";
-    for (int r = 0; r < n; ++r) {
-        for (int c = 0; c < n; ++c) {
+    for (int r = 1; r <= n; ++r) {
+        for (int c = 1; c <= n; ++c) {
             cout << mat[r][c] << " ";
         }
         cout << endl;
@@ -79,6 +79,6 @@ int main() {
     char board[100][100] = {};
     clearBoard(board, N);
 
-    bool success = solveNQueen(board, 0, N);
+    bool success = solveNQueen(board, 1, N);
 
 }

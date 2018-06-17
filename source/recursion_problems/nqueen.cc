@@ -2,6 +2,8 @@
 
 using namespace std;
 
+int cnt;
+
 void clearBoard(char board[][100], int N)
 {
 	for (int i = 0; i < N; i++)
@@ -10,12 +12,12 @@ void clearBoard(char board[][100], int N)
 	}
 }
 
-void outputBoard(char board[][100], int N)
+void outputBoard_config(char board[][100], int N)
 {
 	for (int i = 0; i < N; i++)
 	{
-		for (int j = 0; j < N; j++) cout << board[i][j] << " ";
-				cout << endl;
+		for (int j = 0; j < N; j++) if(board[i][j] == 'Q') cout << "{" << i+1 << "-" << j+1 << "}";
+			cout<<" ";
 	}
 
 }
@@ -27,7 +29,7 @@ bool canPlace(char board[][100], int r, int c, int dim)
 		if (board[x][c] == 'Q') return false;
 	}
 
-	int rowDir[] = {-1, +1};
+	int rowDir[] = {-1, -1};
 	int colDir[] = { -1, +1};
 
 	for (int dir = 0; dir < 2; dir++)
@@ -50,7 +52,15 @@ return true;
 
 bool solveQueen(char board[][100], int r, int dim)
 {
-	if (r == dim) return true;
+	if (r == dim)
+		{   
+		    cnt++;
+		    	cout<<cnt;
+			outputBoard_config(board, dim);
+		
+			return false;
+		    
+		}
 
 	for (int c = 0; c < dim; c++)
 	{
@@ -78,9 +88,6 @@ int main()
 	char board[100][100];
 	clearBoard(board, N);
 
-	bool success = solveQueen(board, 0, N);
-
-	if(success) outputBoard(board, N);
-	else cout << "Couldn't solve it!!!" << endl;
+	solveQueen(board, 0, N);
 
 }
