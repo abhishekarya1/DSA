@@ -13,6 +13,19 @@ void clearBoard(char board[][100], int n)
 	}
 }
 
+void output_board(char board[][100], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			cout << board[i][j] << " ";
+		}
+
+		cout << endl;
+	}
+}
+
 bool canPlace(char board[][100], int r, int c, int dim)
 {
 	for (int x = 0; x < dim; x++)
@@ -41,7 +54,12 @@ bool canPlace(char board[][100], int r, int c, int dim)
 bool solveNQueen(char board[][100], int r, int dim)
 {
 
-	if (r == dim) return true;
+	if ( r == dim) 
+	{
+		output_board(board, dim);
+		cout << endl;
+		return true;
+	}
 
 	for (int c = 0; c < dim; c++)
 	{
@@ -58,19 +76,6 @@ bool solveNQueen(char board[][100], int r, int dim)
 
 	return false;
 
-}
-
-void output_board(char board[][100], int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			cout << board[i][j] << " ";
-		}
-
-		cout << endl;
-	}
 }
 
 int main()
