@@ -10,9 +10,9 @@ class ans{
 
 class Me{
 	
-	long long phone_no;
+	X phone_no;
 public:
-	Me(int p)
+	Me(X p)
 	{
 		phone_no = p;
 	}
