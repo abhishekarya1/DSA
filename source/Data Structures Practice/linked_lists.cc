@@ -14,16 +14,29 @@ public:
 	}
 };
 
-void insertAtHead(node* head, data)
+void insertAtHead(node* &head, int data)
 {
 	node*n = new node(data);
 	n -> next = head;
 	head = n;
 }
 
+void print(node *head)
+{	node*temp = head;
+	while(temp!=NULL)
+	{
+		cout<<temp->data<<"-->";
+		temp = temp -> next;
+	}
+	cout<<endl;
+}
+
 int main()
 {
 	node *head = NULL;
 
-	insertAtHead(5)
+	insertAtHead(head, 5);
+	insertAtHead(head, 4);
+	insertAtHead(head, 3);
+	print(head);
 }
