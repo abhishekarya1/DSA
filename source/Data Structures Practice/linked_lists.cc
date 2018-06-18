@@ -2,13 +2,29 @@
 
 using namespace std;
 
-struct Node
+class node
 {
+public:
 	int data;
-	Node *next;
+	node *next;
+
+	node(int d)
+	{
+		data=d;
+		next=NULL;
+	}
+
 };
+
+void insertAtHead(node *head, int data)
+{
+	node *head = new node(data);
+	n->data = head;
+	head = n;
+}
 
 int main()
 {
-	
+	node *head = NULL;
+	insertAtHead()	
 }
