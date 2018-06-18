@@ -3,14 +3,24 @@
 
 using namespace std;
 
-template <typename X, typename Y>
-Y bigger(X a, Y b)        // Generic Function with a generic Return Type (X)
-{
-	if(a > b) return a;
-	else return b;
-}
+template <typename X>
+class ans{
+	X ans; 
+};
 
+class Me{
+	
+	long long phone_no;
+public:
+	Me(int p)
+	{
+		phone_no = p;
+	}
+};
 int main()
 {
-	cout << bigger(14.2,7);
+
+	Me m(7229);
+	ans<Me> a;
+
 }
