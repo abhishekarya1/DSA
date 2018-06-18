@@ -16,10 +16,10 @@ public:
 
 };
 
-void insertAtHead(node *head, int data)
+void insertAtHead(node *&head, int data)
 {
 	node *head = new node(data);
-	n->data = head;
+	n->next = head;
 	head = n;
 }
 
