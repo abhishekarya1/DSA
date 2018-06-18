@@ -20,7 +20,7 @@ void insertAtHead(node*&head, int data){
 	head = n;
 }
 
-int len{
+int len(node*&head){
 	int len = 0;
 	node*temp = head;
 	while(temp!=NULL)
@@ -28,9 +28,24 @@ int len{
 		temp=temp->next;
 		len+=1;
 	}
+	return len;
 }
 
-void insertinMiddle(node*head, int data, int pos)
+void insertAtTail(node*&head, int data)
+{
+	if(head == NULL){
+		head = new node(data);
+		return;
+	}
+
+	node*tail = head;
+	while(tail->next!=NULL)
+	{
+		tail = tail->next;
+	}
+}
+
+void insertinMiddle(node*&head, int data, int pos)
 {
 	if(head == NULL || pos == 0)
 	{
@@ -38,7 +53,19 @@ void insertinMiddle(node*head, int data, int pos)
 	}
 	else if(pos >= len(head))
 	{
-
+		insertAtTail(head, data);
+	}
+	else{
+		int jump=1;
+		node*temp =head;
+		while(temp!=NULL)
+		{
+			temp = temp ->next;
+			jump+=1;
+		}
+		node *n = new node(data);
+		n -> next = temp->next;
+		temp->next = n;
 	}
 }
 
@@ -60,5 +87,7 @@ int main()
 	insertAtHead(head, 5);
 	insertAtHead(head, 6);
 	insertAtHead(head, 7);
+	insertinMiddle(head, 44, 2);
+	insertAtTail(head, 98);
 	print(head);
 }
