@@ -20,6 +20,29 @@ void insertAtHead(node*&head, int data){
 	head = n;
 }
 
+int len{
+	int len = 0;
+	node*temp = head;
+	while(temp!=NULL)
+	{
+		temp=temp->next;
+		len+=1;
+	}
+}
+
+void insertinMiddle(node*head, int data, int pos)
+{
+	if(head == NULL || pos == 0)
+	{
+		insertAtHead(head, data);
+	}
+	else if(pos >= len(head))
+	{
+
+	}
+}
+
+
 void print(node*head)
 {
 	node*temp = head;
