@@ -62,6 +62,14 @@ void insertatmiddle(node*&head, int pos, int d){
 }
 }
 
+bool searchRecursive(node* &head, int x)
+{
+	if(head == NULL) return false;
+	if(head->data == x) return true;
+	else{return searchRecursive(head->next, x); }
+
+}
+
 void print(node*head)
 {	
 	node* cur = head;
@@ -80,5 +88,6 @@ int main()
 	insertatend(head, 8);
 	insertatmiddle(head, 2, 4);
 	print(head);
+	searchRecursive(head, 3) == true? cout<<"Found":cout<<"Not Found";
 
 }
