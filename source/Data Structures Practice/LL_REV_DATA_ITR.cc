@@ -48,27 +48,6 @@ int length(node*&head)
 	return len;
 }
 
-// void ll_rev(node*&head)
-// {
-// 	if (head == NULL) return ;
-// 	node* start = head;
-// 	node* end = head;
-// 	node* first = head;
-// 	int len = length(head);
-// 	int t = len;
-// 	for (int i = 0; i <= t / 2; i++)
-// 	{
-// 		while (len)
-// 		{
-// 			first = first->next;
-// 		}
-// 		len--;
-// 		swap(start->data, first->data);
-// 		start = start->next;
-// 	}
-
-// }
-
 void myswap(node *a, node *b)
 {
 	int tmp;
