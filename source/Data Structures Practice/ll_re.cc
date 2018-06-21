@@ -2,54 +2,39 @@
 
 using namespace std;
 
-class node {
+class node{
 public:
 	int data;
-	node*next;
+	node* next;
 
-	node(int d) {
+	node(int d)
+	{
 		data = d;
 		next = NULL;
 	}
 };
 
-node* createLL()
+void insertathead(node* &head, int d)
 {
-	int x;
-	node* head = NULL;
-	node* tail = NULL;
-
-	while(true)
-	{
-		cin >> x;
-		if(x == -1) break;
-
-	node* nn = new node(x);
-	if(head == NULL){
-		head = nn;
-		tail = nn;
-	}
-	else{
-		tail -> next = nn;
-		tail = nn;
-	}
-}
-return head;
+	node* nn = new node(d);
+	nn->next= head;
+	head = nn;
 }
 
-void print(const node*head){
-	const node* cur = head;
-	while(cur)
-	{
+void print(node*head)
+{	
+	node* cur = head;
+	while(cur){
 		cout<<cur->data<<"-->";
 		cur = cur->next;
 	}
-	cout<<endl;
 }
 
-int main()	
+int main()
 {
-	node*head = createLL();
+	node*head = NULL;
+	insertathead(head, 1);
+	insertathead(head, 3);
 	print(head);
 
 }
