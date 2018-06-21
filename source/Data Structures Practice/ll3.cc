@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class node{
+class node {
 public:
 	int data;
 	node* next;
@@ -13,49 +13,56 @@ public:
 	}
 };
 
-node* createLL(){
+void createLL(node*&head) {
 
-int x;
-node* head =NULL;
-node* tail = NULL;
-	while(true)
+	int x;
+	node* tail = NULL;
+	while (true)
 	{
 		cin >> x;
-		if(x == -1) break;
+		if (x == -1) break;
 		node* nn = new node(x);
-		if(head == NULL)
+		if (head == NULL)
 		{
-			head= nn;
-			tail =nn;
+			head = nn;
+			tail = nn;
 		}
-		else{
-		tail->next = nn;
-		tail = nn;
+		else {
+			tail->next = nn;
+			tail = nn;
+		}
 	}
 }
 
-return head;
-}
-
-node* ll_reverse(node*head)
+void ll_reverse(node*&head)
 {
-	
+	node* cur = head;
+	node* prev = NULL;
+	node* next;
+	while (cur)
+	{
+		next = cur->next;
+		cur->next = prev;
+		cur = next;
+		prev = cur;
+	}
+	head = prev;
 }
 
-void print(node*head){
+void print(node*head) {
 	node*cur = head;
-	while(cur)
+	while (cur)
 	{
-		cout<<cur->data<<"-->";
+		cout << cur->data << "-->";
 		cur = cur->next;
 	}
 }
 
 int main()
 {
-	node*head = createLL();
+	node*head = NULL;
+	createLL(head);
 	print(head);
-	cout<<endl;
 	ll_reverse(head);
 	print(head);
 }
