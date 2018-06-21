@@ -43,8 +43,8 @@ void ll_reverse(node*&head)
 	{
 		n = c->next;
 		c->next = p;
-		c = n;
 		p = c;
+		c = n;
 	}
 	head = p;
 }
@@ -63,6 +63,7 @@ int main()
 	node*head = NULL;
 	createLL(head);
 	print(head);
+	cout << endl;
 	ll_reverse(head);
 	print(head);
 }
