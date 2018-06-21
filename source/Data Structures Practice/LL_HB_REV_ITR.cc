@@ -35,10 +35,21 @@ void createLL(node*&head, int n)
 	}
 }
 
-node* ll_rev_rec(node*&head)
+void ll_rev(node*&head)
 {
-	
-}	
+	if(head == NULL) return;
+	node* cur = head;
+	node* next;
+	node* prev = NULL;
+	while(cur)
+	{
+		next = cur->next;
+		cur->next = prev;
+		prev = cur;
+		cur = next;
+	}
+	head = prev;
+}
 
 void print(node*&head)
 {
@@ -56,6 +67,6 @@ int main()
 	cin >> n;
 	node* head = NULL;
 	createLL(head, n);
-	head = ll_rev_rec(head);
+	ll_rev(head);
 	print(head);
 }
