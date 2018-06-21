@@ -33,6 +33,35 @@ void insertatend(node* &head, int d)
 	nn->next = NULL;
 }
 
+int length(node*head)
+{
+	int len=0;
+	node* cur =head;
+	while(cur)
+	{
+		cur = cur ->next;
+		len+=1;
+	}
+	return len;
+}
+
+void insertatmiddle(node*&head, int pos, int d){
+	
+	if(head == NULL || pos==0) insertathead(head, d);
+	else if(pos>length(head)) insertatend(head, d);
+	else{
+	node*cur = head;
+	node*nn = new node(d);
+	while(pos-1)
+	{
+		cur=cur->next;
+		pos--;
+	}
+	nn->next= cur->next;
+	cur->next = nn;
+}
+}
+
 void print(node*head)
 {	
 	node* cur = head;
@@ -49,6 +78,7 @@ int main()
 	insertathead(head, 2);
 	insertatend(head, 7);
 	insertatend(head, 8);
+	insertatmiddle(head, 2, 4);
 	print(head);
 
 }
