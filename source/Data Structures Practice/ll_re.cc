@@ -70,7 +70,7 @@ bool searchRecursive(node* &head, int x)
 
 }
 
-bool searchIterative(node*head, int x)
+bool searchIterative(node*&head, int x)
 {
 	node* cur = head;
 	while(cur)
@@ -82,7 +82,7 @@ bool searchIterative(node*head, int x)
 	return false;
 }
 
-void print(node*head)
+void print(node*&head)
 {	
 	node* cur = head;
 	while(cur){
@@ -91,16 +91,24 @@ void print(node*head)
 	}
 }
 
+void deleteathead(node*&head)
+{
+	node* cur = head;
+	head = cur->next; 
+	delete cur;
+}
+
 int main()
 {
 	node*head = NULL;
 	insertathead(head, 1);
-	insertathead(head, 2);
+	insertatend(head, 2);
 	insertatend(head, 7);
 	insertatend(head, 8);
 	insertatmiddle(head, 2, 4);
+	// searchRecursive(head, 7) == true? cout<<"Found":cout<<"Not Found";
+	// searchIterative(head, 3) == true? cout<<"Found":cout<<"Not Found";
+	deleteathead(head);
 	print(head);
-	searchRecursive(head, 7) == true? cout<<"Found":cout<<"Not Found";
-	searchIterative(head, 3) == true? cout<<"Found":cout<<"Not Found";
 
 }
