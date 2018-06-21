@@ -34,6 +34,21 @@ void createLL(node*&head)
 	}
 }
 
+void ll_reverse(node*&head)
+{
+	node* cur = head;
+	node* prev = NULL;
+	node* next;
+	while (cur)
+	{
+		next = cur->next;
+		cur->next = prev;
+		prev = cur;
+		cur = next;
+	}
+	head = prev;
+}
+
 void print(node*&head)
 {
 	node*cur = head;
