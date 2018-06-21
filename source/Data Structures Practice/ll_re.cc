@@ -112,6 +112,20 @@ void deleteatend(node*head)
 	delete cur;
 }
 
+void deleteatmiddle(node* head, int pos)
+{
+	node*prev=NULL;
+	node*cur = head;
+	while(pos-1)
+	{
+		pos--;
+		prev = cur;
+		cur = cur ->next;
+	}
+	prev->next = cur->next;
+	delete cur;
+}
+
 int main()
 {
 	node*head = NULL;
@@ -120,12 +134,15 @@ int main()
 	insertatend(head, 7);
 	insertatend(head, 8);
 	insertatmiddle(head, 2, 4);
+	print(head);
 	// searchRecursive(head, 7) == true? cout<<"Found":cout<<"Not Found";
 	// searchIterative(head, 3) == true? cout<<"Found":cout<<"Not Found";
-	deleteathead(head);
-	print(head);
+	// deleteathead(head);
+	// print(head);
 	cout << endl;
-	deleteatend(head);
+	// deleteatend(head);
+	// print(head);
+	deleteatmiddle(head, 3);
 	print(head);
 
 }
