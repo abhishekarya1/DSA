@@ -37,6 +37,11 @@ node* tail = NULL;
 return head;
 }
 
+node* ll_reverse(node*head)
+{
+	
+}
+
 void print(node*head){
 	node*cur = head;
 	while(cur)
@@ -49,5 +54,8 @@ void print(node*head){
 int main()
 {
 	node*head = createLL();
+	print(head);
+	cout<<endl;
+	ll_reverse(head);
 	print(head);
 }
