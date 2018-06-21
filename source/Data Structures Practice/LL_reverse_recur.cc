@@ -34,20 +34,19 @@ void createLL(node*&head)
 	}
 }
 
-void ll_reverse(node*&head)
-{
-	node* cur = head;
-	node* prev = NULL;
-	node* next;
-	while (cur)
-	{
-		next = cur->next;
-		cur->next = prev;
-		prev = cur;
-		cur = next;
-	}
-	head = prev;
+node* reverseList(node* head){
+    // recursive
+    if (head == NULL || head->next == NULL){
+        // either 0 or 1 node only in the list
+        return head;
+    }
+
+    node* remList = reverseList(head->next);
+    head->next->next = head;
+    head->next = NULL;
+    return remList;
 }
+
 
 void print(node*&head)
 {
@@ -65,6 +64,6 @@ int main()
 	createLL(head);
 	print(head);
 	cout << endl;
-	ll_reverse(head);
+	head = reverseList(head);
 	print(head);
 }
