@@ -21,6 +21,18 @@ void insertathead(node* &head, int d)
 	head = nn;
 }
 
+void insertatend(node* &head, int d)
+{
+	node* nn = new node(d);	
+	node* cur = head;
+	while(cur->next!=NULL)
+	{
+		cur = cur->next;
+	}
+	cur->next = nn;
+	nn->next = NULL;
+}
+
 void print(node*head)
 {	
 	node* cur = head;
@@ -34,7 +46,9 @@ int main()
 {
 	node*head = NULL;
 	insertathead(head, 1);
-	insertathead(head, 3);
+	insertathead(head, 2);
+	insertatend(head, 7);
+	insertatend(head, 8);
 	print(head);
 
 }
