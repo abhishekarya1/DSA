@@ -22,6 +22,7 @@ void createLL(node*&head, int n)
 	{
 		cin >> x;
 		node* nn = new node(x);
+		nn -> next = NULL;
 		if (head == NULL)
 		{
 			head = nn;
@@ -35,20 +36,69 @@ void createLL(node*&head, int n)
 	}
 }
 
-void ll_rev(node*&head)
+int length(node*&head)
 {
-	node* cur = head;
-	node*next;
-	node* prev = NULL;
-	while(cur)
+	int len = 0;
+	node*cur = head;
+	while (cur)
 	{
-		next=cur->next;
-		cur->next = prev;
-		prev = cur;
-		cur = next;
+		len += 1;
+		cur = cur->next;
 	}
-	head = prev;
-}	
+	return len;
+}
+
+// void ll_rev(node*&head)
+// {
+// 	if (head == NULL) return ;
+// 	node* start = head;
+// 	node* end = head;
+// 	node* first = head;
+// 	int len = length(head);
+// 	int t = len;
+// 	for (int i = 0; i <= t / 2; i++)
+// 	{
+// 		while (len)
+// 		{
+// 			first = first->next;
+// 		}
+// 		len--;
+// 		swap(start->data, first->data);
+// 		start = start->next;
+// 	}
+
+// }
+
+void myswap(node *a, node *b)
+{
+	int tmp;
+	tmp = a->data;
+	a->data=b->data;
+	b->data=tmp;
+}
+
+void ll_rev(node*&head)
+{  int i;
+	if (head == NULL) return;
+	int len = length(head);
+	node* end = head;
+	node* start = head;
+	int h = len/2;
+	cout<<h<<endl;
+	while(h>0)
+{  i=len;
+	end=head;
+	while (i > 1)
+	{
+		end = end->next;
+		i--;
+	}
+	myswap(start, end);
+	start = start->next;
+	h--;
+	len--;
+}
+}
 
 void print(node*&head)
 {
