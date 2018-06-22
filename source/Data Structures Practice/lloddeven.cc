@@ -35,14 +35,28 @@ void createLL(node*&head, int n)
 	}
 }
 
+void shifttohead(node*&head, node*&cur, node*&prev)
+{
+	prev->next = cur->next;
+	cur->next = head;
+	head = cur;
+}
+
 void oddeven(node*&head)
 {
 	node* cur = head;
+	node* str = NULL;
+	node* prev = NULL;
 	if (head == NULL) return;
 	while (cur)
 	{
-		if (cur->data % 2 == 0)
-			cur = cur->next;
+		if(head->data %2 != 0){ cur=cur->next; continue; }
+		if (cur->data % 2 != 0) {str = cur; shifttohead(head, cur, prev); 
+		prev = str->next; 
+		cur = str->next->next; continue;}
+		prev = cur;
+		cur= cur->next;
+
 	}
 }
 
