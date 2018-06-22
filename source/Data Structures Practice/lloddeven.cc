@@ -51,9 +51,8 @@ void oddeven(node*&head)
 	while (cur)
 	{
 		if(head->data %2 != 0){ cur=cur->next; continue; }
-		if (cur->data % 2 != 0) {str = cur; shifttohead(head, cur, prev); 
-		prev = str->next; 
-		cur = str->next->next; continue;}
+		if (cur->data % 2 != 0) {shifttohead(head, cur, prev);
+		cur = prev->next; continue;}
 		prev = cur;
 		cur= cur->next;
 
