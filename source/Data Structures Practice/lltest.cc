@@ -45,8 +45,8 @@ void eliminate(node*&head)
 
 		if (prev->data == cur->data)
 		{
-			prev = cur->next;
-			cur = cur->next->next; 
+			prev->next = cur->next;
+			cur = cur->next; 
 		}
 		else
 		{
