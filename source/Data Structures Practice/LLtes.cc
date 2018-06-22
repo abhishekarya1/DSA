@@ -57,24 +57,24 @@ int length(node*&head)
 // }
 
 void ll_rev(node*&head)
-{	int i;
-	if (head == NULL) return;
+{
+	int i;
+	node*end = head;
+	node*start = head;
 	int len = length(head);
-	node* end = head;
-	node* start = head;
 	int h = len / 2;
-	while (h > 0)
-	{	i = len;
-		end = head;
-		while (i > 1)
+	while(h)
+	{
+		i=len;
+		while(i-1)
 		{
 			end = end->next;
 			i--;
 		}
 		swap(start->data, end->data);
 		start = start->next;
-		h--;
 		len--;
+		h--;
 	}
 }
 
