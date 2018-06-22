@@ -37,14 +37,18 @@ void createLL(node*&head, int n)
 
 void oddeven(node*&head)
 {
-	if(head == NULL) return;
+	if (head == NULL) return;
 	node* odd = head;
+	node* evenHead = head->next;
 	node* even = head->next;
-	while (odd && odd->next && even && even->next)
+	while (odd && odd->next && even && even->next)   
 	{
 		odd->next = odd->next->next;
+		odd = odd->next;
 		even->next = even->next->next;
+		even = even->next;
 	}
+	odd->next = evenHead;
 }
 
 void print(node*&head)
