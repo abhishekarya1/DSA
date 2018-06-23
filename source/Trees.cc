@@ -1,6 +1,42 @@
-class node{
-	public:
+#include<iostream>
+
+using namespace std;
+
+class Treenode {
+public:
 	int data;
-	node* left;
-	node* right;
+	Treenode* left;
+	Treenode* right;
+	Treenode(int d)
+	{
+		data = d;
+		left = NULL;
+		right = NULL;
+	}
+};
+
+Treenode* createTree() {
+	int x;
+	cin >> x;
+	if (x == -1) return NULL;
+
+	Treenode* root = new Treenode(x);
+	root->left = createTree();
+	root->right = createTree();
+	return root;
+
+}
+
+void printTree(Treenode* root)
+{
+	if (root == NULL) return;
+	printTree(root->left);
+	cout << root;
+	printTree(root->right);
+}
+
+int main()
+{
+	Treenode* root = createTree();
+	printTree(root);
 }
