@@ -48,10 +48,21 @@ int max(int a, int b)
 int getHeight(const Treenode* root)
 {
 	if (root == NULL) return 0;
-	cnt++;
-	return max(getHeight(root->left) ,getHeight(root->right));
+
+	return max(getHeight(root->left) + 1 ,getHeight(root->right) + 1);
 
 }
+
+int getDiameter(const Treenode* root)
+{
+	if(root == NULL) return 0;
+
+	int dialeft = getDiameter(root->left);
+	int diaright = getDiameter(root->right);
+	int diacurrent = getHeight(root->left) + getHeight(root->right) + 1;
+	return max(max(dialeft, diaright), diacurrent);
+}
+
 
 int main()
 {
