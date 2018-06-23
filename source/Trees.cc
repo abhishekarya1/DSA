@@ -2,6 +2,8 @@
 
 using namespace std;
 
+int cnt;
+
 class Treenode {
 public:
 	int data;
@@ -21,22 +23,32 @@ Treenode* createTree() {
 	if (x == -1) return NULL;
 
 	Treenode* root = new Treenode(x);
+	//cout << "Enter left child of" << x << " ";
 	root->left = createTree();
+	//cout << "Enter right child of" << x << " ";
 	root->right = createTree();
 	return root;
 
 }
 
-void printTree(Treenode* root)
+void printInorder(const Treenode* root)
 {
 	if (root == NULL) return;
-	printTree(root->left);
-	cout << root->data;
-	printTree(root->right);
+	printInorder(root->left);
+	cout << root->data << " ";
+	printInorder(root->right);
+}
+
+int getHeight(const Treenode* root)
+{
+	if (root == NULL) return cnt;
+	cnt++;
+	getHeight(root->left);
 }
 
 int main()
 {
 	Treenode* root = createTree();
-	printTree(root);
+	printInorder(root);
+	getHeight(root);
 }
