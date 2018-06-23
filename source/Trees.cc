@@ -47,10 +47,10 @@ int max(int a, int b)
 
 int getHeight(const Treenode* root)
 {
-	if (root == NULL) return cnt;
+	if (root == NULL) return 0;
 	cnt++;
-	getHeight(root->left);
-	getHeight(root->right);
+	return max(getHeight(root->left) ,getHeight(root->right));
+
 }
 
 int main()
