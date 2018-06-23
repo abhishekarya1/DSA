@@ -50,5 +50,6 @@ int main()
 {
 	Treenode* root = createTree();
 	printInorder(root);
-	getHeight(root);
+	cout << endl;
+	cout << "Height = " << getHeight(root);
 }
