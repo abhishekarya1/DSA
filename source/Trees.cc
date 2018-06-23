@@ -39,11 +39,18 @@ void printInorder(const Treenode* root)
 	printInorder(root->right);
 }
 
+int max(int a, int b)
+{
+	if(a > b) return a;
+	else return b;
+}
+
 int getHeight(const Treenode* root)
 {
 	if (root == NULL) return cnt;
 	cnt++;
 	getHeight(root->left);
+	getHeight(root->right);
 }
 
 int main()
