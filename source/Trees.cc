@@ -31,7 +31,7 @@ void printTree(Treenode* root)
 {
 	if (root == NULL) return;
 	printTree(root->left);
-	cout << root;
+	cout << root->data;
 	printTree(root->right);
 }
 
