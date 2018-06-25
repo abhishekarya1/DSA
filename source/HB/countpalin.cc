@@ -7,14 +7,15 @@ int cnt;
 
 int getCount(char str[], int len)
 {
-	bool flag = true;
 	for (int first = 0; first < len; first++)
 	{
+		bool flag = true;
+
 		for (int last = len - 1; last > first; last--)
 		{
 			int i = first;
 			int j = last;
-			while (i <= j)
+			while (i < j)
 			{
 				if (str[i] != str[j]) 
 					{
@@ -27,9 +28,10 @@ int getCount(char str[], int len)
 			
 			if (flag == true)
 			{
-				for (int k = first; k < last; k++) cout << str[k] << " ";
+				for (int k = first; k <= last; k++) cout << str[k];
 			}
 		}
+		cout << " ";
 	}
 }
 
