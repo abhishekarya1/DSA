@@ -9,10 +9,9 @@ int getCount(char str[], int len)
 {
 	for (int first = 0; first < len; first++)
 	{
-		bool flag = true;
-
 		for (int last = len - 1; last > first; last--)
 		{
+            bool flag = true;
 			int i = first;
 			int j = last;
 			while (i < j)
