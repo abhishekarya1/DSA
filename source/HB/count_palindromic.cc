@@ -27,11 +27,11 @@ int getCount(char str[], int len)
 			
 			if (flag == true)
 			{
-				for (int k = first; k <= last; k++) cout << str[k];
+				cnt++;
 			}
 		}
-		cout << " ";
 	}
+    return cnt;
 }
 
 int main()
@@ -40,5 +40,5 @@ int main()
 	int i = 0;
 	cin >> str;
 	int len = strlen(str);
-	getCount(str, len);
+	cout << getCount(str, len);
 }
