@@ -10,12 +10,12 @@ void printKeypad(char *in, char* out, int i, int j)
 	if (in[i] == '\0')
 	{
 		out[j] = '\0';
-		cout << out << endl;
+		cout << out << " ";
 		return;
 	}
 
 	int digit  = in[i] - '0';
-	if(digit == 0 || digit == 1)
+	if(digit == 0)
 	{
 		printKeypad(in, out, i+1, j);
 	}
