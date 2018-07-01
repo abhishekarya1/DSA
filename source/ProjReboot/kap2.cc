@@ -63,24 +63,32 @@ void kappend(node* &head, int k)
 {
 	node* prev = NULL;
 	node* tmp = head;
-	node* cur = head;
+	node* slow = head;
+	node* fast = head;
 	int iter = total(head) - k;
-    if(iter == 0 || k == 0)
+    if(iter == 0 || k >= 0)
     {
         return;
     } 
-	while(iter)
+	while(k)
 	{
-		prev = cur;
-		cur = cur -> next;
-		iter--;
+		fast = fast -> next;
 	}
+
+
+	while(fast)
+	{
+		prev = slow;
+		slow = slow -> next;
+		fast = fast -> next;
+	}
+
 	while (tmp->next)
 	{
 		tmp = tmp->next;
 	}
 	tmp->next = head;
-	head = cur;
+	head = slow;
 	prev->next = NULL;
 }
 
