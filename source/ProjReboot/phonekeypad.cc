@@ -3,13 +3,13 @@
 
 using namespace std;
 
-char keypad [][10] = {"", "", "ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WXYZ"};
+char keypad [][10] = {"", "ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WX", "YZ"};
 
 void printKeypad(char *in, char* out, int i, int j)
 {
 	if (in[i] == '\0')
 	{
-		out[j] == '\0';
+		out[j] = '\0';
 		cout << out << endl;
 		return;
 	}
@@ -19,7 +19,7 @@ void printKeypad(char *in, char* out, int i, int j)
 	{
 		printKeypad(in, out, i+1, j);
 	}
-	for (int k = 0; keypad[i][k] != '\0'; k++)
+	for (int k = 0; keypad[digit][k] != '\0'; k++)
 	{
 		out[j] = keypad[digit][k];
 		printKeypad(in, out, i+1, j+1);
@@ -29,8 +29,7 @@ void printKeypad(char *in, char* out, int i, int j)
 
 int main()
 {
-	char in[100];
-	char out[100];
+	char in[100], out[100];
 	cin >> in;
 	printKeypad(in, out, 0, 0);
 
