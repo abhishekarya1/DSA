@@ -56,14 +56,12 @@ int total(node* head)
 		i+=1;
 		ty = ty->next;
 	}
-	cout<<i;
 	return i;
 }
 
 void kappend(node* &head, int k)
 {
 	node* prev = NULL;
-	node* slow = head;
 	node* tmp = head;
 	node* cur = head;
 	int iter = total(head) - k;
@@ -71,6 +69,7 @@ void kappend(node* &head, int k)
 	{
 		prev = cur;
 		cur = cur -> next;
+		iter--;
 	}
 	while (tmp->next)
 	{
