@@ -51,21 +51,25 @@ int total(node* head)
 {
 	int i = 0;
 	node* ty = head;
-	while (ty)
+	while(ty)
 	{
-		i += 1;
+		i+=1;
 		ty = ty->next;
 	}
 	return i;
 }
 
-void kappend(node* &head, int n, int k)
+void kappend(node* &head, int k)
 {
 	node* prev = NULL;
 	node* tmp = head;
 	node* cur = head;
-	int iter = n - k;
-	while (iter - 1)
+	int iter = total(head) - k;
+    if(iter == 0 || k == 0)
+    {
+        return;
+    } 
+	while(iter)
 	{
 		prev = cur;
 		cur = cur -> next;
@@ -85,9 +89,8 @@ int main()
 	int n, k;
 	cin >> n;
 	node* head = createLL(n);
-	print(head);
 	cin >> k;
-	kappend(head, n, k);
+	kappend(head, k);
 	print(head);
 
 }
