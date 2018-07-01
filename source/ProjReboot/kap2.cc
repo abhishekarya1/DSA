@@ -51,9 +51,9 @@ int total(node* head)
 {
 	int i = 0;
 	node* ty = head;
-	while(ty)
+	while (ty)
 	{
-		i+=1;
+		i += 1;
 		ty = ty->next;
 	}
 	return i;
@@ -65,7 +65,7 @@ void kappend(node* &head, int n, int k)
 	node* tmp = head;
 	node* cur = head;
 	int iter = n - k;
-	while(iter)
+	while (iter - 1)
 	{
 		prev = cur;
 		cur = cur -> next;
