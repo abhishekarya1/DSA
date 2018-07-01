@@ -84,7 +84,8 @@ int main()
 		//print(head2);
 		//cout << endl;
 		node* mhead = mergell(head1, head2);
-		print(mhead);
+		print(mhead)
+		cout << endl;
 		n--;
 	}
 }
