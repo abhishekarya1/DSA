@@ -6,7 +6,7 @@
 using namespace std;
 
 vector<string> v;
-
+int cnt;
 char keypad [][10] = {"", "ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WX", "YZ"};
 
 void printKeypad(char *in, char* out, int i, int j)
@@ -14,6 +14,7 @@ void printKeypad(char *in, char* out, int i, int j)
 	if (in[i] == '\0')
 	{
 		out[j] = '\0';
+        cnt++;
 		v.push_back(out);
 		return;
 	}
@@ -36,6 +37,7 @@ int main()
 	char in[100], out[100];
 	cin >> in;
 	printKeypad(in, out, 0, 0);
+    cout << cnt << endl;
 	for (int i = 0; i < v.size(); i++)
 	{
 		cout << v[i] << " ";
