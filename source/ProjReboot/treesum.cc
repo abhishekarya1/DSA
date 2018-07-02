@@ -19,25 +19,31 @@ public:
 treenode* createTree()
 {
 	string ch;
-	int x; 
-	cin >> x;
-	cin >> ch;
-	if(ch == "false") return NULL; 
-	else
-	{
-	treenode* root = new treenode(x);
-	root->left = createTree();
-	root->right = createTree();
-	return root;
-	}
+	int x;
+	cin >> x >> ch;
 	
+		treenode* root = new treenode(x);
+		if(ch == "false") return NULL;
+		else{
+			
+			root->left = createTree();
+		}
+
+		cin >> ch;
+		if(ch == "false") return NULL;
+		else {
+			
+			root->right = createTree();
+		}
+		return root;	
+		
 }
 
 void printtree(const treenode* root)
 {
-    if(root == NULL) return;
+	if (root == NULL) return;
 	printtree(root->left);
-	cout << root->data;
+	cout << root->data << " ";
 	printtree(root->right);
 }
 
