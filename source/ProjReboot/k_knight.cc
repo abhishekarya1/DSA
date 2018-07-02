@@ -1,4 +1,5 @@
 #include<iostream>
+#include<iomanip>
 
 using namespace std;
 
@@ -26,7 +27,7 @@ bool solveKnight(int board[D][D], int n, int move, int cur_row, int cur_col)
 		if (canPlace(board, n, next_row, next_col) == true)
 		{
 			board[next_row][next_col] = move + 1;
-			bool isSuccessful = solveKnight(board, n, move, next_row, next_col);
+			bool isSuccessful = solveKnight(board, n, move + 1, next_row, next_col);
 			if (isSuccessful == true) return true;
 			board[next_row][next_col] = 0;
 		}
@@ -40,7 +41,7 @@ void print(int board[D][D], int n)
 	{
 		for (int j = 0; j < n; j++)
 		{
-			cout << board[i][j] << " ";
+			cout << setw(3) << board[i][j] << " ";
 		}
 		cout << endl;
 	}
