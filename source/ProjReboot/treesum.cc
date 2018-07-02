@@ -18,11 +18,11 @@ public:
 
 treenode* createTree()
 {
-	char ch[10];
+	//string ch;
 	int x; 
 	cin >> x;
-	cin >> ch;
-	if(strcmp(ch,"false")==true) return NULL; 
+	//cin >> ch;
+	if(x == -1) return NULL; 
 	
 	treenode* root = new treenode(x);
 	root->left = createTree();
@@ -30,7 +30,7 @@ treenode* createTree()
 	return root;
 }
 
-void printtree(treenode* root)
+void printtree(const treenode* root)
 {
     if(root == NULL) return;
 	printtree(root->left);
