@@ -18,24 +18,17 @@ public:
 
 treenode* createTree()
 {
-	string ch;
+	string rch, lch;
 	int x;
-	cin >> x >> ch;
-	
-		treenode* root = new treenode(x);
-		if(ch == "false") return NULL;
-		else{
-			
-			root->left = createTree();
-		}
 
-		cin >> ch;
-		if(ch == "false") return NULL;
-		else {
-			
-			root->right = createTree();
-		}
-		return root;	
+	cin >> x;
+	
+	treenode*root = new treenode(x);
+	cin >> lch;
+	if(lch == "true") root->left = createTree();
+	cin >> rch;
+	if(rch == "true") root->right = createTree();
+	return root;	
 		
 }
 
@@ -47,8 +40,17 @@ void printtree(const treenode* root)
 	printtree(root->right);
 }
 
+int treesum(treenode* root)
+{
+	int fsum;
+	if(root == NULL) return 0;
+	
+	return fsum = root->data + treesum(root->left) + treesum(root->right);
+}
+
 int main()
 {
 	treenode *root = createTree();
 	printtree(root);
+	cout << treesum(root);
 }
