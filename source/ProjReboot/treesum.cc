@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cstring>
 
 using namespace std;
 
@@ -17,22 +18,23 @@ public:
 
 treenode* createTree()
 {
-	bool ch;
-	int x; cin >> x;
+	char ch[10];
+	int x; 
+	cin >> x;
 	cin >> ch;
-	if(ch == false) return NULL; 
+	if(strcmp(ch,"false")==true) return NULL; 
 	
 	treenode* root = new treenode(x);
 	root->left = createTree();
 	root->right = createTree();
 	return root;
-	
 }
 
 void printtree(treenode* root)
 {
+    if(root == NULL) return;
 	printtree(root->left);
-	cout << root;
+	cout << root->data;
 	printtree(root->right);
 }
 
