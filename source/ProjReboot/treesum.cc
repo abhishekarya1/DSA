@@ -18,16 +18,19 @@ public:
 
 treenode* createTree()
 {
-	//string ch;
+	string ch;
 	int x; 
 	cin >> x;
-	//cin >> ch;
-	if(x == -1) return NULL; 
-	
+	cin >> ch;
+	if(ch == "false") return NULL; 
+	else
+	{
 	treenode* root = new treenode(x);
 	root->left = createTree();
 	root->right = createTree();
 	return root;
+	}
+	
 }
 
 void printtree(const treenode* root)
