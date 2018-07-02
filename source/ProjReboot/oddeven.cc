@@ -46,53 +46,75 @@ node* createLL(int n)
 	return head;
 }
 
-node* oddeven(node* &head)
+void oddeven(node* &head)
 {
-    // Corner case
-    if (head == NULL)
-        return NULL;
+    node *end = head;
+    node *prev = NULL;
+    node *cur = head;
  
-    // Initialize first nodes of even and
-    // odd lists
-    node *odd = head;
-    node *even = head->next;
+    while (end->next) end = end->next;
  
-    // Remember the first node of even list so
-    // that we can connect the even list at the
-    // end of odd list.
-    node *evenFirst = even;
+    node *new_end = end;
  
-    while (1)
+    /* Consider all odd nodes before the first even node
+       and move then after end */
+    while (cur->data %2 == 0 && cur != end)
     {
-        // If there are no more nodes, then connect
-        // first node of even list to the last node
-        // of odd list
-        if (!odd || !even || !(even->next))
-        {
-            odd->next = evenFirst;
-            break;
-        }
- 
-        // Connecting odd nodes
-        odd->next = even->next;
-        odd = even->next;
- 
-        // If there are NO more even nodes after
-        // current odd.
-        if (odd->next == NULL)
-        {
-            even->next = NULL;
-            odd->next = evenFirst;
-            break;
-        }
- 
-        // Connecting even nodes
-        even->next = odd->next;
-        even = odd->next;
+        new_end->next = cur;
+        cur = cur->next;
+        new_end->next->next = NULL;
+        new_end = new_end->next;
     }
  
-    return head;
-
+    // 10->8->17->17->15
+    /* Do following steps only if there is any even node */
+    if (cur->data%2 != 0)
+    {
+        /* Change the head pointer to point to first even node */
+        head = cur;
+ 
+        /* now current points to the first even node */
+        while (cur != end)
+        {
+            if ( (cur->data)%2 != 0 )
+            {
+                prev = cur;
+                cur = cur->next;
+            }
+            else
+            {
+                /* break the link between prev and current */
+                prev->next = cur->next;
+ 
+                /* Make next of curr as NULL  */
+                cur->next = NULL;
+ 
+                /* Move curr to end */
+                new_end->next = cur;
+ 
+                /* make curr as new end of list */
+                new_end = cur;
+ 
+                /* Update current pointer to next of the moved node */
+                cur = prev->next;
+            }
+        }
+    }
+ 
+    /* We must have prev set before executing lines following this
+       statement */
+    else prev = cur;
+ 
+    /* If there are more than 1 odd nodes and end of original list is
+      odd then move this node to end to maintain same order of odd
+      numbers in modified list */
+    if (new_end!=end && (end->data)%2 != 0)
+    {
+        prev->next = end->next;
+        end->next = NULL;
+        new_end->next = end;
+    }
+    return;
 }
 
 int main()
