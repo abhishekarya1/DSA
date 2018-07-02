@@ -51,6 +51,6 @@ int treesum(treenode* root)
 int main()
 {
 	treenode *root = createTree();
-	printtree(root);
+	// printtree(root);
 	cout << treesum(root);
 }
